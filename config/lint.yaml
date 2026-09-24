@@ -1,0 +1,15 @@
+# Bullet lint rules (from docs/research.md §3).
+max_lines: 2
+unique_opening_verbs: true   # no two bullets on the page may start with the same verb
+past_verbs: [Implemented, Built, Reached, Shrank, Found, Measured, Diagnosed, Trained,
+  Removed, Compared, Ran, Re-evaluated, Hand-built, Designed, Developed, Wrote, Created,
+  Reduced, Cut, Improved, Deployed, Evaluated, Analyzed, Analysed, Benchmarked, Fixed,
+  Added, Compiled, Optimized, Optimised, Profiled, Tested, Led, Shipped, Replicated,
+  Reproduced, Investigated, Achieved, Showed, Caught, Served, Mapped, Reported, Corrected, Identified, Automated, Integrated, Published, Migrated]
+present_verbs: [Implementing, Building, Developing, Training, Maintaining, Researching,
+  Implement, Build, Develop, Train, Maintain, Research]
+buzzwords: [passionate, hardworking, hard-working, synergy, synergies, leveraged, leverage,
+  cutting-edge, cutting edge, state-of-the-art, go-getter, team player, detail-oriented,
+  results-driven, dynamic, innovative, world-class, seamless, robust, responsible for,
+  various, successfully, utilized, spearheaded]
+first_person: ['\bI\b', '\b(me|my|mine|we|our|ours|myself)\b']

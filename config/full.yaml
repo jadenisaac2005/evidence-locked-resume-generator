@@ -1,0 +1,21 @@
+# Full set: every bullet (16). For picking from, or a longer CV; not one page.
+max_pages: 2
+paper: a4            # a4 (India/most countries) or us-letter
+font_size: 11        # pt; research: 10–12
+show_cgpa: true
+contact: [location, phone, email, website, github, linkedin, x]
+ascii_output: true
+sections: [education, projects, skills]
+headings:
+  education: Education
+  projects: Projects
+  skills: Skills
+  experience: Experience
+max_bullets_per_project: 5   # the full bullet set (16; fits one page at 11 pt, but dense; 2 allowed)
+projects:
+  - {id: cpp-wasm, links: 2, bullets: [accuracy, wasm, weights, demo, loader]}
+  - {id: fake-news, links: 2, bullets: [model, dedup, ablation, labels]}
+  - {id: numpy-nn, links: 2, bullets: [convergence, momentum-bug]}
+  - {id: rockfall, links: 2, bullets: [serve, eval, thresholds, fixes]}
+  - {id: portfolio, links: 1, bullets: [site]}
+skills: [languages, ml, systems_web, tools]

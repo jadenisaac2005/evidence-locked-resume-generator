@@ -1,0 +1,4 @@
+# Copy to data/private.yaml (gitignored) and fill in. Merged into `identity` at build time.
+# Never commit data/private.yaml.
+phone: "+91 00000 00000"      # placeholder, replace with your number
+# email: you@example.com      # optional, overrides the email in facts.yaml

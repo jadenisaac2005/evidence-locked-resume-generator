@@ -1,0 +1,11 @@
+Machine Learning Engineer Intern (sample job description for testing tailoring)
+
+We are looking for an ML engineering intern to help build and evaluate NLP and
+classification models. You will train models in Python using scikit-learn and PyTorch,
+design evaluation pipelines, and check results for data leakage.
+
+Requirements:
+- Strong Python; familiarity with NumPy, pandas and scikit-learn
+- Understanding of logistic regression, TF-IDF, gradient boosting (XGBoost) and deep learning
+- Experience with model evaluation: baselines, held-out test sets, precision/recall, ROC-AUC
+- Nice to have: PyTorch, Docker, SQL, AWS, FastAPI for model serving

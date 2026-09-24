@@ -1,0 +1,4 @@
+typst>=0.13      # Typst compiler as a Python wheel (no TeX install)
+pypdf>=4         # pure-Python PDF text extraction for the ATS check
+PyYAML>=6
+pytest>=7        # tests only

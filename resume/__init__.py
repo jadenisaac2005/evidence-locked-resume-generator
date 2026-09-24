@@ -1,0 +1,1 @@
+"""Evidence-locked résumé generator."""
