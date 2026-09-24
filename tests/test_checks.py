@@ -51,9 +51,9 @@ def test_number_only_in_bullet_wording_is_not_evidence(tmp_path):
     """Bullet wordings live in facts.yaml but are not evidence; ids like 'f3' aren't either."""
     facts = copy.deepcopy(FACTS)
     b = bullet(facts, "rockfall", "fixes")
-    b["text"] += " in 3 days"
+    b["text"] += " in 999 days"
     res = build(tmp_path, facts)
-    assert any("'3'" in e for e in errors(res, "numbers")), res.report.errors
+    assert any("'999'" in e for e in errors(res, "numbers")), res.report.errors
 
 
 @pytest.mark.parametrize("text", [
@@ -194,10 +194,10 @@ def test_non_ascii_warns(tmp_path):
 
 def test_context_said_once(tmp_path):
     res = build(tmp_path)
-    assert res.text.count("Smart India Hackathon 2024") == 1
+    assert res.text.count("Smart India Hackathon 2025") == 1
 
 
 def test_rockfall_eval_wording_is_not_a_real_data_claim(tmp_path):
     res = build(tmp_path)
-    assert "real alert cutoff" in " ".join(res.text.split())
+    assert "served cutoff" in " ".join(res.text.split())
     assert not errors(res, "banned")

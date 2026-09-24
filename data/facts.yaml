@@ -29,7 +29,7 @@ education:
 projects:
   - id: cpp-wasm
     name: C++ Neural Network → WebAssembly
-    dates: null            # MISSING
+    dates: Jul 28, 2025
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/cpp-neural-network
@@ -55,7 +55,7 @@ projects:
 
   - id: numpy-nn
     name: NumPy Neural Network from Scratch
-    dates: null            # MISSING
+    dates: Mar 3, 2026
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/nn-from-scratch
@@ -75,7 +75,7 @@ projects:
 
   - id: fake-news
     name: Fake News Classifier
-    dates: null            # MISSING
+    dates: Mar 16, 2026
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/news-headline-classifier
@@ -106,8 +106,8 @@ projects:
 
   - id: rockfall
     name: Rockfall Prediction System
-    context: Built solo for Smart India Hackathon 2024
-    dates: null            # MISSING (only the hackathon year is known)
+    context: Built solo for Smart India Hackathon 2025
+    dates: Sep 19, 2025
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/rockfall-prediction
@@ -127,15 +127,15 @@ projects:
     guards: []
     bullets:
       # `context` cites the project's context field; citing it hides the context from the header.
-      - {id: serve, supports: [f1, f8, context], text: "Served a SMOTE + StandardScaler + XGBoost risk classifier through FastAPI with three risk levels and Twilio SMS alerts at the critical level, built solo for Smart India Hackathon 2024"}
-      - {id: eval, supports: [f3, f7], text: "Measured the served model at its real alert cutoff: SMS alerts are 98.3% precise against a 64.75% base rate but catch only 17.4% of events (ROC-AUC 0.75, held-out 60/20/20 split, synthetic data)"}
+      - {id: serve, supports: [f1, f8, context], text: "Served a SMOTE + StandardScaler + XGBoost risk classifier through FastAPI with three risk levels and Twilio SMS alerts at the critical level, built solo for Smart India Hackathon 2025"}
+      - {id: eval, supports: [f3, f7], text: "Quantified the alert trade-off at the served cutoff: 98.3% precision (vs a 64.75% base rate) at 17.4% recall; ROC-AUC 0.75 on a held-out 60/20/20 split of synthetic data"}
       - {id: fixes, supports: [f4], text: "Caught and fixed threshold tuning on the test set and a mismatch between the evaluated and served model"}
       - {id: thresholds, supports: [f3, f6], text: "Mapped the precision/recall trade-off across alert levels: GUARDED (≥0.45) 78.3% / 71.7%, ELEVATED (≥0.70) 88.2% / 42.3%, critical 98.3% / 17.4%"}
 
   - id: portfolio
     name: Personal site — jadenisaac.com
-    dates: null            # MISSING
-    ongoing: false
+    dates: Sep 15, 2026
+    ongoing: true
     links:
       - https://jadenisaac.com
     stack: [Next.js, TypeScript, Tailwind CSS, Vercel]
@@ -161,6 +161,5 @@ experience: []   # none recorded; the Experience section is never rendered while
 
 unknown_fill_in_later:
   - project dates (month/year) for every project
-  - phone number
   - coursework highlights, certifications, awards (none recorded; don't add any)
   - work experience (none recorded; don't create a section for it)
