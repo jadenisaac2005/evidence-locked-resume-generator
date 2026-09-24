@@ -28,6 +28,10 @@ REAL_DATA = [
 BAD_CODEPOINTS = re.compile(r"[ﬀ-ﬆ�-\x00-\x08\x0b\x0c\x0e-\x1f]")
 NUMBER = re.compile(r"\d+(?:[.,]\d+)*")
 DOMAIN = re.compile(r"\b(?:[\w-]+\.)+(?:com|org|io|dev|in|ai|net|me|co)(?:/[\w./%-]*)?", re.I)
+# A "word" containing an internal hyphen or slash (ROC-AUC, 60/20/20, 7.83/10, ...): the
+# template boxes these so they never break mid-token, since a line break there can drop
+# the separator on some ATS extractors even when it survives ours.
+HYPHEN_TOKEN = re.compile(r"[A-Za-z0-9]+(?:[-/][A-Za-z0-9]+)+")
 
 
 @dataclass
@@ -83,6 +87,29 @@ def squash(s: str) -> str:
     """Whitespace-free, quote-normalised form used for reading-order matching."""
     s = s.replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')
     return re.sub(r"\s+", "", s).lower()
+
+
+def hyphen_tokens(doc: Document) -> set[str]:
+    """Every hyphenated/slashed token (ROC-AUC, 60/20/20, ...) that will be rendered."""
+    texts = [doc.name] + [c["text"] for c in doc.contact]
+    for p in doc.projects():
+        texts.append(p["name"])
+        if p.get("context"):
+            texts.append(p["context"])
+        texts.extend(p.get("stack") or [])
+        if p.get("date"):
+            texts.append(p["date"])
+        texts.extend(l["text"] for l in p.get("links") or [])
+        texts.extend(b["text"] for b in p["bullets"])
+    for s in doc.sections:
+        if s["kind"] == "education":
+            for e in s["entries"]:
+                texts.extend(str(v) for v in (e.get("institution"), e.get("degree"),
+                                               e.get("date"), e.get("cgpa")) if v)
+        elif s["kind"] == "skills":
+            for g in s["groups"]:
+                texts.extend(g["items"])
+    return {m.group(0) for t in texts for m in HYPHEN_TOKEN.finditer(t)}
 
 
 # --- pre-render checks (on the selected text) ------------------------------------------
@@ -208,6 +235,14 @@ def check_pdf(doc: Document, facts: dict, text: str, pages: int, rep: Report):
             rep.error("ats", f"{where} in extracted text: \"{frag[:70]}\"")
         else:
             pos = i + len(squash(frag))
+
+    # ATS: a hyphenated/slashed token must survive on one line; a line break inside it
+    # can drop the separator character on extraction (e.g. "ROC-AUC" -> "ROCAUC").
+    line_squashes = [squash(ln) for ln in text.splitlines()]
+    for tok in sorted(hyphen_tokens(doc)):
+        key = squash(tok)
+        if not any(key in ln for ln in line_squashes):
+            rep.error("ats", f"'{tok}' is split across a line break in the extracted text")
 
     # Hard rule 2: every number in the rendered résumé must appear in the facts.
     extra = numbers(text) - fact_numbers(facts)

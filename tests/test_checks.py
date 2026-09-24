@@ -6,9 +6,20 @@ import pytest
 import yaml
 
 from resume.build import ROOT, run
+from resume.checks import Report, check_pdf
+from resume.model import Document
 
 FACTS = yaml.safe_load((ROOT / "data/facts.yaml").read_text())
 CONFIG = yaml.safe_load((ROOT / "config/default.yaml").read_text())
+
+
+def hyphen_doc():
+    return Document(name="Jane Doe", paper="a4", font_size=11.0, max_pages=1, contact=[], sections=[
+        {"kind": "projects", "title": "Projects", "projects": [{
+            "id": "p", "name": "P", "context": None, "stack": [], "date": None, "links": [],
+            "bullets": [{"id": "p/b", "supports": [], "text": "Measured ROC-AUC on a held-out split"}],
+        }]},
+    ])
 
 
 def build(tmp_path: Path, facts=None, config=None, private=None, public=False):
@@ -29,6 +40,10 @@ def bullet(facts, pid, bid):
 
 def errors(res, kind):
     return [e for e in res.report.errors if e.startswith(f"[{kind}]")]
+
+
+def errors_for(rep, kind):
+    return [e for e in rep.errors if e.startswith(f"[{kind}]")]
 
 
 def test_default_build_passes(tmp_path):
@@ -201,3 +216,17 @@ def test_rockfall_eval_wording_is_not_a_real_data_claim(tmp_path):
     res = build(tmp_path)
     assert "served cutoff" in " ".join(res.text.split())
     assert not errors(res, "banned")
+
+
+def test_hyphenated_token_split_across_a_line_break_fails(tmp_path):
+    doc = hyphen_doc()
+    rep = Report()
+    check_pdf(doc, {"identity": {}}, "Measured ROC-\nAUC on a held-out split", pages=1, rep=rep)
+    assert any("'ROC-AUC'" in e and "line break" in e for e in errors_for(rep, "ats")), rep.errors
+
+
+def test_hyphenated_token_intact_on_one_line_passes(tmp_path):
+    doc = hyphen_doc()
+    rep = Report()
+    check_pdf(doc, {"identity": {}}, "Measured ROC-AUC on a held-out split", pages=1, rep=rep)
+    assert not any("line break" in e for e in errors_for(rep, "ats"))

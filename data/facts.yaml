@@ -29,7 +29,7 @@ education:
 projects:
   - id: cpp-wasm
     name: C++ Neural Network → WebAssembly
-    dates: Jul, 2025
+    dates: Jul 2025
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/cpp-neural-network
@@ -55,7 +55,7 @@ projects:
 
   - id: numpy-nn
     name: NumPy Neural Network from Scratch
-    dates: Mar, 2026
+    dates: Mar 2026
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/nn-from-scratch
@@ -75,7 +75,7 @@ projects:
 
   - id: fake-news
     name: Fake News Classifier
-    dates: Mar, 2026
+    dates: Mar 2026
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/news-headline-classifier
@@ -107,7 +107,7 @@ projects:
   - id: rockfall
     name: Rockfall Prediction System
     context: Built solo for Smart India Hackathon 2025
-    dates: Sep, 2025
+    dates: Sep 2025
     ongoing: false
     links:
       - https://github.com/jadenisaac2005/rockfall-prediction

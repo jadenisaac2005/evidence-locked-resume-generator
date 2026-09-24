@@ -6,31 +6,32 @@ Amity University Bangalore (Amity School of Engineering and Technology) Expected
 B.Tech, Artificial Intelligence & Machine Learning |  CGPA: 7.83/10
 Projects
 C++ Neural Network to WebAssembly |  C++, WebAssembly, Emscripten, JavaScript
-github.com/jadenisaac2005/cpp-neural-network
+github.com/jadenisaac2005/cpp-neural-network |  Jul 2025
 • Reached 97.43% on the 10,000-image MNIST test set (native C++) and 97.33% through the live demo's own 
 preprocessing and WebAssembly code, with backpropagation and dense layers written from scratch
 • Shrank weights from 1.16 MB text to 398 KB Float32 binary with identical predictions on all 10,000 test images
 • Fixed a silent failure where the demo ran an untrained network: the loader now verifies all 101,770 parameters 
 loaded and disables prediction otherwise
 Fake News Classifier |  Python, scikit-learn, pandas, NLTK, NLP
-github.com/jadenisaac2005/news-headline-classifier
+github.com/jadenisaac2005/news-headline-classifier |  Mar 2026
 • Achieved 95.22% test accuracy on deduplicated WELFake articles (80/20 split, seed 42) with TF-IDF and logistic 
 regression, vs 88.91% title-only and 86.27% Naive Bayes baselines
 • Found 2,656 test articles (18.4%) with an identical copy in training (leaky-split accuracy 95.76%); deduplicating 
 removed 8,577 surplus copies (72,134 to 63,557 articles)
 • Showed the model's top-weighted features are mostly outlet style (bylines, naming conventions), not claim 
 content; removing 38 such source/format tokens cut accuracy only to 93.54%
-NumPy Neural Network from Scratch |  Python, NumPy github.com/jadenisaac2005/nn-from-scratch
+NumPy Neural Network from Scratch |  Python, NumPy
+github.com/jadenisaac2005/nn-from-scratch |  Mar 2026
 • Implemented SGD, Momentum and Adam by hand in NumPy (no autograd) and compared them on MNIST: 26, 
 4 and 2 epochs to reach 97% test accuracy; final 97.90%, 98.07%, 97.91% (100 epochs, one seeded run each)
 • Diagnosed from the training curves that momentum had been implemented in EMA form (behaving like SGD); 
 fixed it to classical momentum and added a unit test that fails on the old code
 Rockfall Prediction System |  Python, XGBoost, scikit-learn, FastAPI, React, Twilio
-github.com/jadenisaac2005/rockfall-prediction
+github.com/jadenisaac2005/rockfall-prediction |  Sep 2025
 • Served a SMOTE + StandardScaler + XGBoost risk classifier through FastAPI with three risk levels and Twilio 
-SMS alerts at the critical level, built solo for Smart India Hackathon 2024
-• Measured the served model at its real alert cutoff: SMS alerts are 98.3% precise against a 64.75% base rate but 
-catch only 17.4% of events (ROC-AUC 0.75, held-out 60/20/20 split, synthetic data)
+SMS alerts at the critical level, built solo for Smart India Hackathon 2025
+• Quantified the alert trade-off at the served cutoff: 98.3% precision (vs a 64.75% base rate) at 17.4% recall; 
+ROC-AUC 0.75 on a held-out 60/20/20 split of synthetic data
 • Caught and fixed threshold tuning on the test set and a mismatch between the evaluated and served model
 Skills
 Languages: Python, C++, TypeScript, JavaScript
