@@ -134,7 +134,7 @@ projects:
 
   - id: portfolio
     name: Personal site — jadenisaac.com
-    dates: Sep 15, 2026
+    dates: Sep 2026
     ongoing: true
     links:
       - https://jadenisaac.com
@@ -160,6 +160,5 @@ skills:
 experience: []   # none recorded; the Experience section is never rendered while empty
 
 unknown_fill_in_later:
-  - project dates (month/year) for every project
   - coursework highlights, certifications, awards (none recorded; don't add any)
   - work experience (none recorded; don't create a section for it)
