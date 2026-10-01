@@ -8,6 +8,5 @@ Fill them in; never guess.
 - awards: none recorded (don't add any unless real)
 - certifications: none recorded (don't add any unless real)
 - experience: none recorded (section is omitted, not left empty)
-- (from facts.yaml unknown_fill_in_later) project dates (month/year) for every project
 - (from facts.yaml unknown_fill_in_later) coursework highlights, certifications, awards (none recorded; don't add any)
 - (from facts.yaml unknown_fill_in_later) work experience (none recorded; don't create a section for it)

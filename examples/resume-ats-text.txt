@@ -29,7 +29,7 @@ fixed it to classical momentum and added a unit test that fails on the old code
 Rockfall Prediction System |  Python, XGBoost, scikit-learn, FastAPI, React, Twilio
 github.com/jadenisaac2005/rockfall-prediction |  Sep 2025
 • Served a SMOTE + StandardScaler + XGBoost risk classifier through FastAPI with three risk levels and Twilio 
-SMS alerts at the critical level, built solo for Smart India Hackathon 2025
+SMS alerts at the critical level, sole developer on a 3-person team for Smart India Hackathon 2025
 • Quantified the alert trade-off at the served cutoff: 98.3% precision (vs a 64.75% base rate) at 17.4% recall; 
 ROC-AUC 0.75 on a held-out 60/20/20 split of synthetic data
 • Caught and fixed threshold tuning on the test set and a mismatch between the evaluated and served model
