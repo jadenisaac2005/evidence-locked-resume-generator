@@ -106,7 +106,7 @@ projects:
 
   - id: rockfall
     name: Rockfall Prediction System
-    context: Built solo for Smart India Hackathon 2025
+    context: Sole developer on a 3-person team for Smart India Hackathon 2025
     dates: Sep 2025
     ongoing: false
     links:
@@ -127,7 +127,7 @@ projects:
     guards: []
     bullets:
       # `context` cites the project's context field; citing it hides the context from the header.
-      - {id: serve, supports: [f1, f8, context], text: "Served a SMOTE + StandardScaler + XGBoost risk classifier through FastAPI with three risk levels and Twilio SMS alerts at the critical level, built solo for Smart India Hackathon 2025"}
+      - {id: serve, supports: [f1, f8, context], text: "Served a SMOTE + StandardScaler + XGBoost risk classifier through FastAPI with three risk levels and Twilio SMS alerts at the critical level, sole developer on a 3-person team for Smart India Hackathon 2025"}
       - {id: eval, supports: [f3, f7], text: "Quantified the alert trade-off at the served cutoff: 98.3% precision (vs a 64.75% base rate) at 17.4% recall; ROC-AUC 0.75 on a held-out 60/20/20 split of synthetic data"}
       - {id: fixes, supports: [f4], text: "Caught and fixed threshold tuning on the test set and a mismatch between the evaluated and served model"}
       - {id: thresholds, supports: [f3, f6], text: "Mapped the precision/recall trade-off across alert levels: GUARDED (≥0.45) 78.3% / 71.7%, ELEVATED (≥0.70) 88.2% / 42.3%, critical 98.3% / 17.4%"}
